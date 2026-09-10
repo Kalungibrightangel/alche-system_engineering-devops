@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
-# Installs Nginx, starts it without systemctl, and serves a page containing "Holberton School"
+# Installs Nginx non-interactively, then starts it and serves a page containing "Holberton School"
+export DEBIAN_FRONTEND=noninteractive
+export NEEDRESTART_MODE=a
 apt-get update -y
 apt-get install -y nginx
-echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Holberton School for the win!" > /usr/share/nginx/html/index.html
 service nginx start
-service nginx restart
